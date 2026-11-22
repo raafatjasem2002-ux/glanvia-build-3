@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #142536;
+  background: #f6f9fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+* { box-sizing: border-box; }
+
+h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; letter-spacing: -0.035em; line-height: 1.16; }
+p { line-height: 1.65; }
+
+::selection { background: #b9ddf6; color: #082b4d; }
+
+@layer components {
+  .container-shell { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12; }
+  .eyebrow { @apply mb-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#0c71ad]; }
+  .eyebrow::before { content: ''; @apply h-px w-7 bg-[#0c71ad]; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#0c71ad] px-6 py-3.5 text-sm font-bold text-white shadow-[0_10px_25px_rgba(12,113,173,0.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#085d90] hover:shadow-[0_14px_32px_rgba(12,113,173,0.28)] focus:outline-none focus:ring-4 focus:ring-blue-100; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-[#cbd9e5] bg-white px-6 py-3.5 text-sm font-bold text-[#17334c] transition duration-300 hover:-translate-y-0.5 hover:border-[#0c71ad] hover:text-[#0c71ad] focus:outline-none focus:ring-4 focus:ring-blue-100; }
+  .surface-card { @apply rounded-[1.75rem] border border-[#e3ebf2] bg-white shadow-[0_18px_60px_rgba(14,48,76,0.07)]; }
+  .form-input { @apply mt-2 w-full rounded-xl border border-[#d8e3ec] bg-white px-4 py-3 text-sm text-[#142536] outline-none transition placeholder:text-[#8ca0b2] focus:border-[#0c71ad] focus:ring-4 focus:ring-blue-50; }
+  .form-label { @apply text-sm font-bold text-[#17334c]; }
+}
+
+.fade-up { animation: fade-up 0.7s ease both; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
